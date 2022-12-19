@@ -1,0 +1,31 @@
+<style>
+    body{
+        background-color: wheat;
+    }
+</style>
+<table border="1" width="100%">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
+        <th>Actions</th>
+    </tr>
+   <% if(students.length>0){%>
+   <% for(var i=0; i<students.length; i++){ %>
+    <tr>
+        <td><%- students[i].id %></td>
+        <td><%- students[i].name %></td>
+        <td><%- students[i].email %></td>
+        <td><%- students[i].mno %></td>
+        <td><% if(students[i].id>5) {%>
+        <a href="/update-student?name=<%-students[i].name%>">Update</a>
+        <a href="/delete-student?id=<%-students[i].id%>">Delete</a>
+        <%} %>
+        </td>    
+    </tr> <%} %>
+    <%}
+    else
+    {%> <h1>Data not found</h1> <%}
+    %>
+</table>
